@@ -1,0 +1,453 @@
+2025-03-15 10:44:41,322 - pinecone_upload - INFO - Pinecone initialized successfully
+2025-03-15 10:44:41,527 - pinecone_upload - INFO - Creating index 'sfold'
+2025-03-15 10:44:42,253 - pinecone_upload - ERROR - Error: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'content-type': 'text/plain; charset=utf-8', 'access-control-allow-origin': '*', 'vary': 'origin,access-control-request-method,access-control-request-headers', 'access-control-expose-headers': '*', 'x-pinecone-api-version': '2025-01', 'X-Cloud-Trace-Context': 'b7669e8e1d0dc6c623909019d51807f2', 'Date': 'Sat, 15 Mar 2025 17:44:43 GMT', 'Server': 'Google Frontend', 'Content-Length': '202', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: {"error":{"code":"INVALID_ARGUMENT","message":"Bad request: Your free plan does not support indexes in the us-central1 region of gcp. To create indexes in this region, upgrade your plan."},"status":400}
+
+2025-03-15 10:46:33,498 - pinecone_upload - INFO - Pinecone initialized successfully
+2025-03-15 10:46:34,584 - pinecone_upload - INFO - Creating index 'sfold'
+2025-03-15 10:46:41,652 - pinecone_upload - INFO - Index 'sfold' created successfully
+2025-03-15 10:47:43,990 - pinecone_upload - INFO - Pinecone initialized successfully
+2025-03-15 10:47:45,252 - pinecone_upload - INFO - Index 'sfold' already exists
+2025-03-15 10:47:45,970 - pinecone_upload - INFO - Connected to index 'sfold'
+2025-03-15 10:47:47,786 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 10:47:47,786 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 10:47:53,856 - pinecone_upload - INFO - Embedding model initialized
+2025-03-15 10:47:53,857 - pinecone_upload - INFO - Found 2 PDF files in sFold-Data
+2025-03-15 10:47:53,857 - pinecone_upload - INFO - Processing ncomms11178.pdf
+2025-03-15 10:47:53,857 - pinecone_upload - INFO - Extracting text from sFold-Data/ncomms11178.pdf
+2025-03-15 10:47:53,864 - pinecone_upload - INFO - PDF has 10 pages
+2025-03-15 10:47:54,090 - pinecone_upload - INFO - Extracted 67170 characters from sFold-Data/ncomms11178.pdf
+2025-03-15 10:47:54,090 - pinecone_upload - INFO - Chunking text of length 67170 with chunk_size=600, overlap=150
+2025-03-15 10:47:54,091 - pinecone_upload - INFO - Created 150 chunks
+2025-03-15 10:47:54,091 - pinecone_upload - INFO - Created 150 chunks from ncomms11178.pdf
+2025-03-15 10:47:54,663 - pinecone_upload - ERROR - Error uploading chunk 1/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '25', 'x-pinecone-request-id': '1054856538949586170', 'x-envoy-upstream-service-time': '26', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:54,742 - pinecone_upload - ERROR - Error uploading chunk 2/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '2281031770045507409', 'x-envoy-upstream-service-time': '0', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:54,842 - pinecone_upload - ERROR - Error uploading chunk 3/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '26', 'x-pinecone-request-id': '8342709407376399754', 'x-envoy-upstream-service-time': '26', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:54,919 - pinecone_upload - ERROR - Error uploading chunk 4/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '853293523413301438', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,016 - pinecone_upload - ERROR - Error uploading chunk 5/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '23', 'x-pinecone-request-id': '3988777561943358821', 'x-envoy-upstream-service-time': '23', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,092 - pinecone_upload - ERROR - Error uploading chunk 6/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '1', 'x-pinecone-request-id': '5777000602598475948', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,172 - pinecone_upload - ERROR - Error uploading chunk 7/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '5647418935567890517', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,247 - pinecone_upload - ERROR - Error uploading chunk 8/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '2279706485883184880', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,325 - pinecone_upload - ERROR - Error uploading chunk 9/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '1', 'x-pinecone-request-id': '8444085023239949876', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,404 - pinecone_upload - ERROR - Error uploading chunk 10/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '8713398717202021080', 'x-envoy-upstream-service-time': '0', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,479 - pinecone_upload - ERROR - Error uploading chunk 11/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '3029065406517952178', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,556 - pinecone_upload - ERROR - Error uploading chunk 12/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '5323082992209843937', 'x-envoy-upstream-service-time': '0', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,634 - pinecone_upload - ERROR - Error uploading chunk 13/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '5146977211223892831', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,710 - pinecone_upload - ERROR - Error uploading chunk 14/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '2837710181301897714', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,786 - pinecone_upload - ERROR - Error uploading chunk 15/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '6996171993050535770', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,864 - pinecone_upload - ERROR - Error uploading chunk 16/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '6482521183701224532', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:55,940 - pinecone_upload - ERROR - Error uploading chunk 17/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '1', 'x-pinecone-request-id': '266986142141539217', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:56,019 - pinecone_upload - ERROR - Error uploading chunk 18/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '0', 'x-pinecone-request-id': '2733080525563359986', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:47:56,096 - pinecone_upload - ERROR - Error uploading chunk 19/150 from ncomms11178.pdf: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Sat, 15 Mar 2025 17:47:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '102', 'Connection': 'keep-alive', 'x-pinecone-request-latency-ms': '2', 'x-pinecone-request-id': '1822435408244789003', 'x-envoy-upstream-service-time': '1', 'server': 'envoy'})
+HTTP response body: {"code":3,"message":"Vector dimension 384 does not match the dimension of the index 768","details":[]}
+
+2025-03-15 10:49:05,515 - pinecone_upload - INFO - Pinecone initialized successfully
+2025-03-15 10:49:07,478 - pinecone_upload - INFO - Creating index 'sfold'
+2025-03-15 10:49:13,732 - pinecone_upload - INFO - Index 'sfold' created successfully
+2025-03-15 10:50:14,841 - pinecone_upload - INFO - Connected to index 'sfold'
+2025-03-15 10:50:15,046 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 10:50:15,046 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 10:50:17,990 - pinecone_upload - INFO - Embedding model initialized
+2025-03-15 10:50:17,991 - pinecone_upload - INFO - Found 2 PDF files in sFold-Data
+2025-03-15 10:50:17,991 - pinecone_upload - INFO - Processing ncomms11178.pdf
+2025-03-15 10:50:17,991 - pinecone_upload - INFO - Extracting text from sFold-Data/ncomms11178.pdf
+2025-03-15 10:50:17,998 - pinecone_upload - INFO - PDF has 10 pages
+2025-03-15 10:50:18,275 - pinecone_upload - INFO - Extracted 67170 characters from sFold-Data/ncomms11178.pdf
+2025-03-15 10:50:18,275 - pinecone_upload - INFO - Chunking text of length 67170 with chunk_size=600, overlap=150
+2025-03-15 10:50:18,275 - pinecone_upload - INFO - Created 150 chunks
+2025-03-15 10:50:18,275 - pinecone_upload - INFO - Created 150 chunks from ncomms11178.pdf
+2025-03-15 10:50:18,939 - pinecone_upload - INFO - Uploaded chunk 1/150 from ncomms11178.pdf
+2025-03-15 10:50:21,086 - pinecone_upload - INFO - Uploaded chunk 2/150 from ncomms11178.pdf
+2025-03-15 10:50:23,204 - pinecone_upload - INFO - Uploaded chunk 3/150 from ncomms11178.pdf
+2025-03-15 10:50:25,317 - pinecone_upload - INFO - Uploaded chunk 4/150 from ncomms11178.pdf
+2025-03-15 10:50:27,436 - pinecone_upload - INFO - Uploaded chunk 5/150 from ncomms11178.pdf
+2025-03-15 10:50:29,553 - pinecone_upload - INFO - Uploaded chunk 6/150 from ncomms11178.pdf
+2025-03-15 10:50:31,680 - pinecone_upload - INFO - Uploaded chunk 7/150 from ncomms11178.pdf
+2025-03-15 10:50:33,800 - pinecone_upload - INFO - Uploaded chunk 8/150 from ncomms11178.pdf
+2025-03-15 10:50:35,964 - pinecone_upload - INFO - Uploaded chunk 9/150 from ncomms11178.pdf
+2025-03-15 10:50:38,086 - pinecone_upload - INFO - Uploaded chunk 10/150 from ncomms11178.pdf
+2025-03-15 10:50:40,214 - pinecone_upload - INFO - Uploaded chunk 11/150 from ncomms11178.pdf
+2025-03-15 10:50:42,341 - pinecone_upload - INFO - Uploaded chunk 12/150 from ncomms11178.pdf
+2025-03-15 10:50:44,472 - pinecone_upload - INFO - Uploaded chunk 13/150 from ncomms11178.pdf
+2025-03-15 10:50:46,606 - pinecone_upload - INFO - Uploaded chunk 14/150 from ncomms11178.pdf
+2025-03-15 10:50:48,766 - pinecone_upload - INFO - Uploaded chunk 15/150 from ncomms11178.pdf
+2025-03-15 10:50:52,479 - pinecone_upload - INFO - Uploaded chunk 16/150 from ncomms11178.pdf
+2025-03-15 10:50:54,628 - pinecone_upload - INFO - Uploaded chunk 17/150 from ncomms11178.pdf
+2025-03-15 10:59:39,564 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 10:59:39,565 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 10:59:42,599 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 10:59:42,599 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 10:59:42,599 - pinecone - INFO - Querying vector store with: 'What are microRNA sponges and how do they work?', k=3
+2025-03-15 10:59:43,196 - pinecone - INFO - Retrieved 3 chunks from vector store
+2025-03-15 10:59:43,199 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 10:59:43,199 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 10:59:44,057 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 10:59:44,057 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 10:59:44,057 - rag_controller - INFO - Retrieving context for question: 'What are microRNA sponges and how do they work?'
+2025-03-15 10:59:44,057 - pinecone - INFO - Querying vector store with: 'What are microRNA sponges and how do they work?', k=5
+2025-03-15 10:59:44,383 - pinecone - INFO - Retrieved 5 chunks from vector store
+2025-03-15 10:59:44,384 - rag_controller - INFO - Found 5 relevant chunks for question: 'What are microRNA sponges and how do they work?'
+2025-03-15 10:59:44,384 - pinecone - INFO - Asking question: 'What are microRNA sponges and how do they work?'
+2025-03-15 10:59:44,384 - pinecone - INFO - Using 5 context chunks to answer question
+2025-03-15 10:59:44,384 - pinecone - INFO - Received answer of length 600
+2025-03-15 11:01:14,326 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-15 11:01:14,326 - werkzeug - INFO -  * Running on http://172.20.165.34:5000/ (Press CTRL+C to quit)
+2025-03-15 11:01:15,024 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:01:15] "GET / HTTP/1.1" 200 -
+2025-03-15 11:01:24,012 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:01:24,012 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:01:25,322 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:01:25,322 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:01:25,322 - rag_controller - INFO - Retrieving context for question: 'who is messi'
+2025-03-15 11:01:25,322 - pinecone - INFO - Querying vector store with: 'who is messi', k=5
+2025-03-15 11:01:25,897 - pinecone - INFO - Retrieved 5 chunks from vector store
+2025-03-15 11:01:25,897 - rag_controller - INFO - Found 5 relevant chunks for question: 'who is messi'
+2025-03-15 11:01:25,897 - pinecone - INFO - Asking question: 'who is messi'
+2025-03-15 11:01:25,897 - pinecone - INFO - Using 5 context chunks to answer question
+2025-03-15 11:01:25,897 - pinecone - INFO - Received answer of length 600
+2025-03-15 11:01:25,899 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:01:25] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:02:30,335 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:02:30,335 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:02:32,039 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:02:32,039 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:02:32,039 - pinecone - INFO - Querying vector store with: 'who is messi', k=5
+2025-03-15 11:02:32,412 - pinecone - INFO - Retrieved 5 chunks from vector store
+2025-03-15 11:02:32,413 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:02:32] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:03:19,851 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:03:19,851 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:03:22,988 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:03:22,988 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:03:22,988 - pinecone - INFO - Querying vector store with: 'who is messi', k=5
+2025-03-15 11:03:23,374 - pinecone - INFO - Retrieved 5 chunks from vector store
+2025-03-15 11:03:23,375 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:03:23] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:05:12,088 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:05:12,089 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:05:13,107 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:05:13,108 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:05:13,108 - pinecone - INFO - Querying vector store with: 'who is messi', k=5
+2025-03-15 11:05:13,458 - pinecone - INFO - Retrieved 5 chunks from vector store
+2025-03-15 11:05:13,459 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:05:13] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:08:07,050 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-15 11:08:07,051 - werkzeug - INFO -  * Running on http://172.20.165.34:5000/ (Press CTRL+C to quit)
+2025-03-15 11:08:08,192 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:08:08] "GET / HTTP/1.1" 200 -
+2025-03-15 11:08:11,983 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:08:11,983 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:08:14,281 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:08:14,281 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:08:14,281 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:08:14,281 - rag_controller - INFO - Retrieving context for question: 'who is messi'
+2025-03-15 11:08:14,281 - pinecone - INFO - Querying vector store with: 'who is messi', k=5
+2025-03-15 11:08:14,809 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:08:14,809 - rag_controller - WARNING - No relevant context found for question: 'who is messi'
+2025-03-15 11:08:14,811 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:08:14] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:08:28,000 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:08:28,001 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:08:29,010 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:08:29,010 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:08:29,010 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:08:29,010 - pinecone - INFO - Querying vector store with: 'who is messi', k=5
+2025-03-15 11:08:29,343 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:08:29,343 - rag_controller - WARNING - No context found for query: 'who is messi'
+2025-03-15 11:08:29,345 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:08:29] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:08:42,103 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:08:42,103 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:08:43,807 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:08:43,807 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:08:43,807 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:08:43,807 - rag_controller - INFO - Retrieving context for question: 'who is ronaldo'
+2025-03-15 11:08:43,807 - pinecone - INFO - Querying vector store with: 'who is ronaldo', k=5
+2025-03-15 11:08:44,150 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:08:44,151 - rag_controller - WARNING - No relevant context found for question: 'who is ronaldo'
+2025-03-15 11:08:44,152 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:08:44] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:08:46,733 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:08:46,733 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:08:47,643 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:08:47,643 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:08:47,643 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:08:47,643 - pinecone - INFO - Querying vector store with: 'who is ronaldo', k=5
+2025-03-15 11:08:48,020 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:08:48,021 - rag_controller - WARNING - No context found for query: 'who is ronaldo'
+2025-03-15 11:08:48,021 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:08:48] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:08:55,074 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:08:55,074 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:08:56,098 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:08:56,098 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:08:56,098 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:08:56,098 - rag_controller - INFO - Retrieving context for question: 'What are microRNA sponges and how do they work?'
+2025-03-15 11:08:56,098 - pinecone - INFO - Querying vector store with: 'What are microRNA sponges and how do they work?', k=5
+2025-03-15 11:08:56,456 - pinecone - INFO - Relevance scores: ['0.4710', '0.4553', '0.4494', '0.4385', '0.4212']
+2025-03-15 11:08:56,456 - pinecone - INFO - Retrieved 5 relevant chunks from vector store (threshold: 0.35)
+2025-03-15 11:08:56,456 - rag_controller - INFO - Found 5 relevant chunks for question: 'What are microRNA sponges and how do they work?'
+2025-03-15 11:08:56,457 - pinecone - INFO - Asking question: 'What are microRNA sponges and how do they work?'
+2025-03-15 11:08:56,457 - pinecone - INFO - Using 5 context chunks to answer question
+2025-03-15 11:08:56,457 - pinecone - INFO - Received answer of length 600
+2025-03-15 11:08:56,458 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:08:56] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:08:58,453 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:08:58,453 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:09:01,957 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:09:01,957 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:09:01,957 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:09:01,957 - pinecone - INFO - Querying vector store with: 'What are microRNA sponges and how do they work?', k=5
+2025-03-15 11:09:02,297 - pinecone - INFO - Relevance scores: ['0.4710', '0.4553', '0.4494', '0.4385', '0.4212']
+2025-03-15 11:09:02,297 - pinecone - INFO - Retrieved 5 relevant chunks from vector store (threshold: 0.35)
+2025-03-15 11:09:02,298 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:09:02] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:12:00,772 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:12:00,772 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:12:01,621 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:12:01,621 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:12:01,621 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:12:01,621 - pinecone - INFO - Querying vector store with: 'What are microRNA sponges and how do they work?', k=5
+2025-03-15 11:12:01,948 - pinecone - INFO - Relevance scores: ['0.4710', '0.4553', '0.4494', '0.4385', '0.4212']
+2025-03-15 11:12:01,948 - pinecone - INFO - Retrieved 5 relevant chunks from vector store (threshold: 0.35)
+2025-03-15 11:12:01,949 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:12:01] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:12:12,305 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:12:12,305 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:12:13,475 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:12:13,475 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:12:13,475 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:12:13,475 - pinecone - INFO - Querying vector store with: 'What are microRNA sponges and how do they work?', k=5
+2025-03-15 11:12:13,837 - pinecone - INFO - Relevance scores: ['0.4710', '0.4553', '0.4494', '0.4385', '0.4212']
+2025-03-15 11:12:13,837 - pinecone - INFO - Retrieved 5 relevant chunks from vector store (threshold: 0.35)
+2025-03-15 11:12:13,838 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:12:13] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:13:47,614 - pinecone_upload - INFO - Pinecone initialized successfully
+2025-03-15 11:13:47,910 - pinecone_upload - INFO - Creating index 'sfold'
+2025-03-15 11:13:58,256 - pinecone_upload - INFO - Index 'sfold' created successfully
+2025-03-15 11:16:07,959 - pinecone_upload - INFO - Pinecone initialized successfully
+2025-03-15 11:16:08,156 - pinecone_upload - INFO - Creating index 'sfold'
+2025-03-15 11:16:13,733 - pinecone_upload - INFO - Index 'sfold' created successfully
+2025-03-15 11:18:18,416 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:18:18] "GET / HTTP/1.1" 200 -
+2025-03-15 11:18:21,438 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:18:21,438 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:18:22,551 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:18:22,551 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:18:22,551 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:18:22,551 - rag_controller - INFO - Retrieving context for question: 'hello'
+2025-03-15 11:18:22,551 - pinecone - INFO - Querying vector store with: 'hello', k=5
+2025-03-15 11:18:23,210 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:18:23,210 - rag_controller - WARNING - No relevant context found for question: 'hello'
+2025-03-15 11:18:23,211 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:18:23] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:18:27,460 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:18:27,460 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:18:28,693 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:18:28,693 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:18:28,693 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:18:28,693 - rag_controller - INFO - Retrieving context for question: 'who is messi'
+2025-03-15 11:18:28,693 - pinecone - INFO - Querying vector store with: 'who is messi', k=5
+2025-03-15 11:18:29,045 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:18:29,045 - rag_controller - WARNING - No relevant context found for question: 'who is messi'
+2025-03-15 11:18:29,046 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:18:29] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:18:32,190 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:18:32,190 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:18:33,418 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:18:33,418 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:18:33,418 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:18:33,418 - pinecone - INFO - Querying vector store with: 'who is messi', k=5
+2025-03-15 11:18:33,746 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:18:33,746 - rag_controller - WARNING - No context found for query: 'who is messi'
+2025-03-15 11:18:33,747 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:18:33] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:18:42,722 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:18:42,722 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:18:48,379 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:18:48,379 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:18:48,379 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:18:48,379 - rag_controller - INFO - Retrieving context for question: 'what is sFold?'
+2025-03-15 11:18:48,379 - pinecone - INFO - Querying vector store with: 'what is sFold?', k=5
+2025-03-15 11:18:48,700 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:18:48,700 - rag_controller - WARNING - No relevant context found for question: 'what is sFold?'
+2025-03-15 11:18:48,702 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:18:48] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:19:00,634 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:19:00,634 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:19:01,899 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:19:01,899 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:19:01,900 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:19:01,900 - rag_controller - INFO - Retrieving context for question: 'what is microRNA'
+2025-03-15 11:19:01,900 - pinecone - INFO - Querying vector store with: 'what is microRNA', k=5
+2025-03-15 11:19:02,221 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:19:02,221 - rag_controller - WARNING - No relevant context found for question: 'what is microRNA'
+2025-03-15 11:19:02,222 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:19:02] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:19:40,833 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:19:40,833 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:19:41,917 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:19:41,917 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:19:41,917 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:19:41,917 - rag_controller - INFO - Retrieving context for question: 'what are microRNAs involved in?'
+2025-03-15 11:19:41,917 - pinecone - INFO - Querying vector store with: 'what are microRNAs involved in?', k=5
+2025-03-15 11:19:42,262 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:19:42,262 - rag_controller - WARNING - No relevant context found for question: 'what are microRNAs involved in?'
+2025-03-15 11:19:42,263 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:19:42] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:19:50,141 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-15 11:19:50,141 - werkzeug - INFO -  * Running on http://172.20.165.34:5000/ (Press CTRL+C to quit)
+2025-03-15 11:19:50,505 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:19:50] "GET / HTTP/1.1" 200 -
+2025-03-15 11:20:02,271 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:20:02,271 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:20:03,725 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:20:03,725 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:20:03,725 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:20:03,725 - rag_controller - INFO - Retrieving context for question: 'What are microRNA sponges and how do they work?'
+2025-03-15 11:20:03,725 - pinecone - INFO - Querying vector store with: 'What are microRNA sponges and how do they work?', k=5
+2025-03-15 11:20:04,203 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:20:04,203 - rag_controller - WARNING - No relevant context found for question: 'What are microRNA sponges and how do they work?'
+2025-03-15 11:20:04,204 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:20:04] "POST /api/rag/ask HTTP/1.1" 200 -
+2025-03-15 11:20:52,063 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:20:52,063 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:20:53,354 - pinecone - INFO - Initialized PineconeVectorDB with index_name=sfold
+2025-03-15 11:20:53,354 - pinecone - INFO - Using chunk_size=600, chunk_overlap=150, upload_delay=2.0s
+2025-03-15 11:20:53,354 - pinecone - INFO - Using relevance_threshold=0.35
+2025-03-15 11:20:53,354 - pinecone - INFO - Querying vector store with: 'What are microRNA sponges and how do they work?', k=5
+2025-03-15 11:20:53,680 - pinecone - WARNING - No chunks met the relevance threshold of 0.35
+2025-03-15 11:20:53,680 - rag_controller - WARNING - No context found for query: 'What are microRNA sponges and how do they work?'
+2025-03-15 11:20:53,682 - werkzeug - INFO - 127.0.0.1 - - [15/Mar/2025 11:20:53] "POST /api/rag/context HTTP/1.1" 200 -
+2025-03-15 11:22:35,947 - pinecone_upload - INFO - Pinecone initialized successfully
+2025-03-15 11:22:36,443 - pinecone_upload - INFO - Index 'sfold' already exists
+2025-03-15 11:22:36,546 - pinecone_upload - INFO - Connected to index 'sfold'
+2025-03-15 11:22:36,887 - pinecone_upload - INFO - Initial index stats: {'dimension': 384,
+ 'index_fullness': 0.0,
+ 'metric': 'cosine',
+ 'namespaces': {},
+ 'total_vector_count': 0,
+ 'vector_type': 'dense'}
+2025-03-15 11:22:36,952 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda
+2025-03-15 11:22:36,952 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-15 11:22:38,433 - pinecone_upload - INFO - Embedding model initialized
+2025-03-15 11:22:38,433 - pinecone_upload - INFO - Found 32 PDF files in sFold-Data
+2025-03-15 11:22:38,433 - pinecone_upload - INFO - Processing file 1/32: mt2008273a.pdf
+2025-03-15 11:22:38,433 - pinecone_upload - INFO - Processing mt2008273a.pdf
+2025-03-15 11:22:38,433 - pinecone_upload - INFO - Extracting text from sFold-Data/mt2008273a.pdf
+2025-03-15 11:22:38,436 - pinecone_upload - INFO - PDF has 10 pages
+2025-03-15 11:22:38,688 - pinecone_upload - INFO - Extracted 56588 characters from sFold-Data/mt2008273a.pdf
+2025-03-15 11:22:38,688 - pinecone_upload - INFO - Chunking text of length 56588 with chunk_size=600, overlap=150
+2025-03-15 11:22:38,688 - pinecone_upload - INFO - Created 126 chunks
+2025-03-15 11:22:38,688 - pinecone_upload - INFO - Created 126 chunks from mt2008273a.pdf
+2025-03-15 11:22:38,955 - pinecone_upload - INFO - Uploaded chunk 1/126 from mt2008273a.pdf
+2025-03-15 11:22:40,063 - pinecone_upload - INFO - Uploaded chunk 2/126 from mt2008273a.pdf
+2025-03-15 11:22:41,196 - pinecone_upload - INFO - Uploaded chunk 3/126 from mt2008273a.pdf
+2025-03-15 11:22:42,346 - pinecone_upload - INFO - Uploaded chunk 4/126 from mt2008273a.pdf
+2025-03-15 11:22:43,448 - pinecone_upload - INFO - Uploaded chunk 5/126 from mt2008273a.pdf
+2025-03-15 11:22:44,571 - pinecone_upload - INFO - Uploaded chunk 6/126 from mt2008273a.pdf
+2025-03-15 11:22:45,699 - pinecone_upload - INFO - Uploaded chunk 7/126 from mt2008273a.pdf
+2025-03-15 11:22:49,124 - pinecone_upload - INFO - Uploaded chunk 8/126 from mt2008273a.pdf
+2025-03-15 11:22:50,235 - pinecone_upload - INFO - Uploaded chunk 9/126 from mt2008273a.pdf
+2025-03-15 11:22:51,358 - pinecone_upload - INFO - Uploaded chunk 10/126 from mt2008273a.pdf
+2025-03-15 11:22:52,467 - pinecone_upload - INFO - Uploaded chunk 11/126 from mt2008273a.pdf
+2025-03-15 11:22:53,594 - pinecone_upload - INFO - Uploaded chunk 12/126 from mt2008273a.pdf
+2025-03-15 11:22:54,712 - pinecone_upload - INFO - Uploaded chunk 13/126 from mt2008273a.pdf
+2025-03-15 11:22:55,863 - pinecone_upload - INFO - Uploaded chunk 14/126 from mt2008273a.pdf
+2025-03-15 11:22:56,986 - pinecone_upload - INFO - Uploaded chunk 15/126 from mt2008273a.pdf
+2025-03-15 11:22:58,096 - pinecone_upload - INFO - Uploaded chunk 16/126 from mt2008273a.pdf
+2025-03-15 11:22:59,208 - pinecone_upload - INFO - Uploaded chunk 17/126 from mt2008273a.pdf
+2025-03-15 11:23:00,356 - pinecone_upload - INFO - Uploaded chunk 18/126 from mt2008273a.pdf
+2025-03-15 11:23:01,469 - pinecone_upload - INFO - Uploaded chunk 19/126 from mt2008273a.pdf
+2025-03-15 11:23:02,577 - pinecone_upload - INFO - Uploaded chunk 20/126 from mt2008273a.pdf
+2025-03-15 11:23:03,682 - pinecone_upload - INFO - Uploaded chunk 21/126 from mt2008273a.pdf
+2025-03-15 11:23:04,801 - pinecone_upload - INFO - Uploaded chunk 22/126 from mt2008273a.pdf
+2025-03-15 11:23:05,915 - pinecone_upload - INFO - Uploaded chunk 23/126 from mt2008273a.pdf
+2025-03-15 11:23:07,028 - pinecone_upload - INFO - Uploaded chunk 24/126 from mt2008273a.pdf
+2025-03-15 11:23:08,141 - pinecone_upload - INFO - Uploaded chunk 25/126 from mt2008273a.pdf
+2025-03-15 11:23:09,256 - pinecone_upload - INFO - Uploaded chunk 26/126 from mt2008273a.pdf
+2025-03-15 11:23:10,366 - pinecone_upload - INFO - Uploaded chunk 27/126 from mt2008273a.pdf
+2025-03-15 11:23:11,492 - pinecone_upload - INFO - Uploaded chunk 28/126 from mt2008273a.pdf
+2025-03-15 11:23:12,644 - pinecone_upload - INFO - Uploaded chunk 29/126 from mt2008273a.pdf
+2025-03-15 11:23:13,772 - pinecone_upload - INFO - Uploaded chunk 30/126 from mt2008273a.pdf
+2025-03-15 11:23:14,910 - pinecone_upload - INFO - Uploaded chunk 31/126 from mt2008273a.pdf
+2025-03-15 11:23:16,030 - pinecone_upload - INFO - Uploaded chunk 32/126 from mt2008273a.pdf
+2025-03-15 11:23:17,156 - pinecone_upload - INFO - Uploaded chunk 33/126 from mt2008273a.pdf
+2025-03-15 11:23:18,297 - pinecone_upload - INFO - Uploaded chunk 34/126 from mt2008273a.pdf
+2025-03-15 11:23:19,418 - pinecone_upload - INFO - Uploaded chunk 35/126 from mt2008273a.pdf
+2025-03-15 11:23:23,040 - pinecone_upload - INFO - Uploaded chunk 36/126 from mt2008273a.pdf
+2025-03-15 11:23:24,159 - pinecone_upload - INFO - Uploaded chunk 37/126 from mt2008273a.pdf
+2025-03-15 11:23:25,276 - pinecone_upload - INFO - Uploaded chunk 38/126 from mt2008273a.pdf
+2025-03-15 11:23:26,410 - pinecone_upload - INFO - Uploaded chunk 39/126 from mt2008273a.pdf
+2025-03-15 11:23:27,531 - pinecone_upload - INFO - Uploaded chunk 40/126 from mt2008273a.pdf
+2025-03-15 11:23:28,652 - pinecone_upload - INFO - Uploaded chunk 41/126 from mt2008273a.pdf
+2025-03-15 11:23:29,775 - pinecone_upload - INFO - Uploaded chunk 42/126 from mt2008273a.pdf
+2025-03-15 11:23:30,900 - pinecone_upload - INFO - Uploaded chunk 43/126 from mt2008273a.pdf
+2025-03-15 11:23:32,015 - pinecone_upload - INFO - Uploaded chunk 44/126 from mt2008273a.pdf
+2025-03-15 11:23:33,153 - pinecone_upload - INFO - Uploaded chunk 45/126 from mt2008273a.pdf
+2025-03-15 11:23:34,291 - pinecone_upload - INFO - Uploaded chunk 46/126 from mt2008273a.pdf
+2025-03-15 11:23:35,428 - pinecone_upload - INFO - Uploaded chunk 47/126 from mt2008273a.pdf
+2025-03-15 11:23:36,536 - pinecone_upload - INFO - Uploaded chunk 48/126 from mt2008273a.pdf
+2025-03-15 11:23:37,652 - pinecone_upload - INFO - Uploaded chunk 49/126 from mt2008273a.pdf
+2025-03-15 11:23:38,770 - pinecone_upload - INFO - Uploaded chunk 50/126 from mt2008273a.pdf
+2025-03-15 11:23:39,900 - pinecone_upload - INFO - Uploaded chunk 51/126 from mt2008273a.pdf
+2025-03-15 11:23:41,017 - pinecone_upload - INFO - Uploaded chunk 52/126 from mt2008273a.pdf
+2025-03-15 11:23:42,129 - pinecone_upload - INFO - Uploaded chunk 53/126 from mt2008273a.pdf
+2025-03-15 11:23:43,261 - pinecone_upload - INFO - Uploaded chunk 54/126 from mt2008273a.pdf
+2025-03-15 11:23:44,370 - pinecone_upload - INFO - Uploaded chunk 55/126 from mt2008273a.pdf

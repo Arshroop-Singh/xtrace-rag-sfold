@@ -1,15 +1,15 @@
 import os
-from app.utils.vector import XTraceVectorDB
+from app.utils.vector import PineconeVectorDB
 
 # Initialize the vector database client
 def get_vector_db():
     """
-    Get the XTraceVectorDB instance
+    Get the PineconeVectorDB instance
     
     Returns:
-        XTraceVectorDB instance
+        PineconeVectorDB instance
     """
-    return XTraceVectorDB()  # No parameters needed
+    return PineconeVectorDB()  # No parameters needed, defaults from config
 
 def query_vector_store(query_text, k=5):
     """

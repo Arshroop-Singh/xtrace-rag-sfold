@@ -4,7 +4,11 @@ import requests
 import PyPDF2
 import time
 import logging
+from pinecone import Pinecone
+from sentence_transformers import SentenceTransformer
 from typing import Dict, List, Optional, Union
+
+from app.config.config import PINECONE_API_KEY, PINECONE_ENVIRONMENT, PINECONE_INDEX_NAME
 
 # Configure logging
 logging.basicConfig(
@@ -12,21 +16,55 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler('xtrace_upload.log')
+        logging.FileHandler('pinecone_upload.log')
     ]
 )
-logger = logging.getLogger('xtrace')
+logger = logging.getLogger('pinecone')
 
-class XTraceVectorDB:
+class PineconeVectorDB:
     """
-    A class to handle interactions with the XTrace Vector Database API
+    A class to handle interactions with the Pinecone Vector Database
     """
-    def __init__(self):
+    def __init__(self, 
+                 api_key: str = PINECONE_API_KEY,
+                 environment: str = PINECONE_ENVIRONMENT,
+                 index_name: str = PINECONE_INDEX_NAME,
+                 chunk_size: int = 600,
+                 chunk_overlap: int = 150,
+                 upload_delay: float = 2.0,
+                 relevance_threshold: float = 0.35):
         """
-        Initialize the XTrace Vector DB client with hardcoded values
+        Initialize the Pinecone Vector DB client
+        
+        Args:
+            api_key: Pinecone API key
+            environment: Pinecone environment
+            index_name: Pinecone index name
+            chunk_size: Size of text chunks in characters
+            chunk_overlap: Overlap between chunks in characters
+            upload_delay: Delay between uploads in seconds
+            relevance_threshold: Minimum similarity score (0-1) for results to be considered relevant
         """
-        logger.info("Initialized XTraceVectorDB with hardcoded credentials")
-        logger.info("Using index_name=new-new-new and knowledge_base=test")
+        self.api_key = api_key
+        self.environment = environment
+        self.index_name = index_name
+        self.chunk_size = chunk_size
+        self.chunk_overlap = chunk_overlap
+        self.upload_delay = upload_delay
+        self.relevance_threshold = relevance_threshold
+        
+        # Initialize Pinecone with the new API
+        self.pc = Pinecone(api_key=self.api_key)
+        
+        # Connect to the index
+        self.index = self.pc.Index(self.index_name)
+        
+        # Initialize the embedding model
+        self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')  # This model produces 384-dimensional embeddings
+        
+        logger.info(f"Initialized PineconeVectorDB with index_name={self.index_name}")
+        logger.info(f"Using chunk_size={self.chunk_size}, chunk_overlap={self.chunk_overlap}, upload_delay={self.upload_delay}s")
+        logger.info(f"Using relevance_threshold={self.relevance_threshold}")
     
     def extract_text_from_pdf(self, pdf_path: str) -> str:
         """
@@ -111,13 +149,13 @@ class XTraceVectorDB:
         logger.info(f"Created {len(chunks)} chunks")
         return chunks
     
-    def upload_text(self, text: str, retry_count: int = 0) -> Dict:
+    def upload_text(self, text: str, metadata: Dict = None) -> Dict:
         """
         Upload text to the vector database
         
         Args:
             text: The text to upload
-            retry_count: Internal retry counter
+            metadata: Optional metadata to associate with the text
             
         Returns:
             API response
@@ -126,34 +164,24 @@ class XTraceVectorDB:
             logger.warning("Empty text provided, skipping upload")
             return {"error": "Empty text provided"}
         
-        url = "https://beta0-api.xtrace.ai/data"
-        
-        # Hardcoded payload with the same format as the working example
-        payload = "{\n"
-        payload += f"    \"context\": \"{text}\",\n"
-        payload += "    \"index_name\": \"new-new-new\",\n"
-        payload += "    \"knowledge_base\": \"test\"\n"
-        payload += "}"
-        
-        # Hardcoded headers
-        headers = {
-            'x-api-key': 'pR4EPkE9AV5YlLVUlBqax5rN1jWMAPDbaO6Jysxp',
-            'Content-Type': 'application/json'
-        }
-        
-        logger.info(f"Uploading text chunk of length {len(text)}")
-        
         try:
-            # Copy the working example exactly
-            response = requests.request("POST", url, headers=headers, data=payload)
+            # Generate a unique ID for this chunk
+            chunk_id = f"chunk_{int(time.time())}_{hash(text) % 10000}"
             
-            # Parse response
-            response_json = response.json()
+            # Create embedding for the text
+            embedding = self.embedding_model.encode(text).tolist()
             
-            # Check for success message in response
-            if "response" in response_json and response_json["response"] == "data upload success!":
-                return {"success": True}
-            return response_json
+            # Prepare metadata
+            if metadata is None:
+                metadata = {}
+            
+            metadata["text"] = text
+            
+            # Upload to Pinecone with the new API
+            self.index.upsert(vectors=[(chunk_id, embedding, metadata)])
+            
+            logger.info(f"Successfully uploaded chunk with ID {chunk_id}")
+            return {"success": True, "id": chunk_id}
             
         except Exception as e:
             logger.error(f"Error uploading text: {str(e)}")
@@ -184,7 +212,15 @@ class XTraceVectorDB:
         
         for i, chunk in enumerate(chunks):
             logger.info(f"Uploading chunk {i+1}/{len(chunks)} from {filename}")
-            result = self.upload_text(chunk)
+            
+            # Add metadata about the source
+            metadata = {
+                "source": filename,
+                "chunk_index": i,
+                "total_chunks": len(chunks)
+            }
+            
+            result = self.upload_text(chunk, metadata)
             results.append(result)
             
             # Log success or failure
@@ -257,36 +293,41 @@ class XTraceVectorDB:
             k: Number of chunks to retrieve
             
         Returns:
-            List of relevant text chunks or a special error message if API is down
+            List of relevant text chunks
         """
         logger.info(f"Querying vector store with: '{query_text}', k={k}")
         
-        url = "https://beta0-api.xtrace.ai/query"
-        
-        # Create payload EXACTLY like the working example
-        payload = "{\n"
-        payload += f"    \"query\": \"{query_text}\",\n"
-        payload += f"    \"k\": \"1\",\n"
-        payload += "    \"index_name\": \"new-new-new\",\n"
-        payload += "    \"knowledge_base\": \"test\"\n"
-        payload += "}"
-        
-        # Hardcoded headers exactly like the working example
-        headers = {
-            'x-api-key': 'pR4EPkE9AV5YlLVUlBqax5rN1jWMAPDbaO6Jysxp',
-            'Content-Type': 'application/json'
-        }
-        
         try:
-            # Copy the working example exactly
-            response = requests.request("POST", url, headers=headers, data=payload)
+            # Create embedding for the query
+            query_embedding = self.embedding_model.encode(query_text).tolist()
             
-            # Parse response
-            response_json = response.json()
-            chunks = response_json.get("response", [])
+            # Query Pinecone with the new API
+            results = self.index.query(
+                vector=query_embedding,
+                top_k=k,
+                include_metadata=True
+            )
             
-            logger.info(f"Retrieved {len(chunks)} chunks from vector store")
-            return chunks
+            # Filter results by relevance threshold and extract text from metadata
+            relevant_chunks = []
+            for match in results['matches']:
+                score = match['score']
+                if score >= self.relevance_threshold:
+                    relevant_chunks.append({
+                        'text': match['metadata']['text'],
+                        'score': score
+                    })
+            
+            # Log the scores for debugging
+            if relevant_chunks:
+                scores_formatted = [f"{score:.4f}" for score in [chunk['score'] for chunk in relevant_chunks]]
+                logger.info(f"Relevance scores: {scores_formatted}")
+                logger.info(f"Retrieved {len(relevant_chunks)} relevant chunks from vector store (threshold: {self.relevance_threshold})")
+            else:
+                logger.warning(f"No chunks met the relevance threshold of {self.relevance_threshold}")
+            
+            # Return just the text for backward compatibility
+            return [chunk['text'] for chunk in relevant_chunks]
             
         except Exception as e:
             error_msg = f"API_ERROR: Vector database API is currently unavailable. Please try again later."
@@ -318,7 +359,7 @@ class XTraceVectorDB:
             
             if not context_chunks or len(context_chunks) == 0:
                 logger.warning("No context found for question, cannot provide accurate answer")
-                return ""
+                return "I don't have information about this topic in my knowledge base."
         
         # Check for API error in provided context chunks
         if context_chunks and len(context_chunks) == 1 and context_chunks[0].startswith("API_ERROR:"):
@@ -327,32 +368,10 @@ class XTraceVectorDB:
         
         logger.info(f"Using {len(context_chunks)} context chunks to answer question")
         
-        url = "https://beta0-api.xtrace.ai/question"
-        
-        # Join context chunks into a single context string
-        context_text = " ".join(context_chunks)
-        
-        # Create payload with hardcoded values
-        payload = "{\n"
-        payload += f"    \"question\": \"{question}\",\n"
-        payload += f"    \"context\": \"{context_text}\",\n"
-        payload += "    \"index_name\": \"new-new-new\",\n"
-        payload += "    \"knowledge_base\": \"test\"\n"
-        payload += "}"
-        
-        # Hardcoded headers
-        headers = {
-            'x-api-key': 'pR4EPkE9AV5YlLVUlBqax5rN1jWMAPDbaO6Jysxp',
-            'Content-Type': 'application/json'
-        }
-        
         try:
-            # Copy the working example exactly
-            response = requests.request("POST", url, headers=headers, data=payload)
-            
-            # Parse response
-            response_json = response.json()
-            answer = response_json.get("result", "")
+            # For now, we'll just return the most relevant context chunk as the answer
+            # In a real implementation, you would use an LLM to generate an answer based on the context
+            answer = context_chunks[0]
             
             if answer:
                 logger.info(f"Received answer of length {len(answer)}")
